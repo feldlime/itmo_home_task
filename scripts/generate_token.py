@@ -19,7 +19,7 @@ def generate_token() -> str:
 
 @contextmanager
 def open_pg_connection(db_url: str) -> tp.Generator[connection, None, None]:
-    conn = psycopg2.connect(db_url, connect_timeout=1)
+    conn = psycopg2.connect(db_url, connect_timeout=10)
     try:
         yield conn
     finally:
